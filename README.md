@@ -10,10 +10,10 @@
 ## Trello Board
 [TrelloBoard](https://trello.com/b/h9HeAzOf/whatdrink)
 ## WireFrame
-![Login](/what-drink/public/images/loginWireFrame.png)
-![HomePage](/what-drink/public/images/homePageWireFrame.png)
-![Favorites](/what-drink/public/images/favoritesWireFrame.png)
-![DrinkDetails](/what-drink/public/images/drinkDetailsWireFrame.png)
+![Login](/public/images/loginWireFrame.png)
+![HomePage](/public/images/homePageWireFrame.png)
+![Favorites](/public/images/favoritesWireFrame.png)
+![DrinkDetails](/public/images/drinkDetailsWireFrame.png)
 
 ## ERD
 
