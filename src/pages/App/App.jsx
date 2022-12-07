@@ -8,7 +8,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import IngListPage from '../IngListPage/IngListPage';
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
 
   return (
     <main>
