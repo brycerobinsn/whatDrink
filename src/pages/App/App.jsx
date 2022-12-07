@@ -12,9 +12,9 @@ function App() {
 
   return (
     <main>
+      <NavBar/>
       {user ?
         <>
-        <NavBar/>
           <Routes>
             <Route path='/drinks' element={<DrinkListPage/>}/>
             <Route path='/drinks/favorite' element={<FavoritePage/>}/>
