@@ -14,7 +14,7 @@ app.use(express.json());
 // config serve-favicon
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
-
+app.use(require('./config/checkToken'))
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
 

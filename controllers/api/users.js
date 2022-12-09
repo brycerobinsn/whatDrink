@@ -4,7 +4,8 @@ const User = require('../../models/user');
 
 module.exports = {
   create,
-  login
+  login,
+  checkToken
 };
 
 async function login(req, res) {
@@ -32,6 +33,10 @@ async function create(req, res) {
   }
 }
 
+function checkToken(req, res) {
+    console.log('req.user', req.user)
+    res.json(req.exp)
+}
 /*-- Helper Functions --*/
 function createJWT(user) {
   return jwt.sign(
