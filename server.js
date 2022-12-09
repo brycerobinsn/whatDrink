@@ -12,7 +12,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 // config serve-favicon
-// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Put all API routes here (before the catch-all)
