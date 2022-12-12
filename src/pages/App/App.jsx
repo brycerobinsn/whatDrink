@@ -11,6 +11,15 @@ import CreateDrinkPage from '../CreateDrinkPage/CreateDrinkPage';
 
 function App() {
   const [user, setUser] = useState(getUser())
+  const [drink, setDrink] = useState({
+    name: '',
+    image: '',
+    liquor:'',
+    details:''
+  })
+  function addDrink (newDrink) {
+    setDrink([...drink, newDrink])
+  }
 
   return (
     <main>
@@ -20,7 +29,7 @@ function App() {
           <Routes>
             <Route path='/drinks' element={<DrinkListPage/>}/>
             <Route path='/drinks/favorite' element={<FavoritePage/>}/>
-            <Route path='/drinks/create' element={<CreateDrinkPage/>}/>
+            <Route path='/drinks/create' element={<CreateDrinkPage addDrink={addDrink}/>}/>
             <Route path='/ingredients' element={<IngListPage/>}/>
           </Routes>
         </>

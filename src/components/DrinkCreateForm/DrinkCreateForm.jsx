@@ -1,59 +1,58 @@
-import { Component } from "react";
-import drink from "../../../models/drink";
+import { useState } from "react";
+import * as drinkAPI from '../../utilities/drinks-api';
 
 
-export default class CreateDrinkForm extends Component {
-  state = {
+export default function AddDrink({newDrink}) {
+  const [drink, setDrink] = useState ({
     name: '',
     image: '',
     liquor:'',
-    ingredients:[],
-  };
+    details:'',
+  });
 
-  handleSubmit = async (evt) => {
+  const handleSubmit =  async (evt) => {
     evt.preventDefault();
-    try {
-      const formData = { ...this.state };
-    } catch {
-      // Invalid signup
-      this.setState({
-        error: 'Drink Failed - Try Again'
-      });
-    }
+    console.log('Submitted')
+    await drinkAPI.addDrink(drink)
+    setDrink({
+        name:'',
+        image:'',
+        liquor: '',
+        details: ''
+    })
   }
 
-  handleChange = (evt) => {
-    this.setState({
-      [evt.target.name]: evt.target.value,
-      error: ''
-    });
+  const handleChange = (evt) => {
+    setDrink ({ ...drink,
+        [evt.target.name]: evt.target.value,
+        [evt.target.image]: evt.target.value,
+        [evt.target.liquor]: evt.target.value,
+        [evt.target.details]: evt.target.value,
+    })
   }
 
-  render() {
-    const disable = this.state.password !== this.state.confirm;
+ 
     return (
       <div>
         <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <form autoComplete="off" onSubmit={handleSubmit}>
             <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
+            <input type="text" name="name" value={drink.name} onChange={handleChange} required />
             <label>Image</label>
-            <input type="file" name="image" value={this.state.image} onChange={this.handleChange} required />
+            <input type="file" name="image" value={drink.image} onChange={handleChange}/>
             <label>Liquor</label>
-            <select name='liquor' value={drink.liquor} onChange={this.handleChange} required>
+            <select name='liquor' value={drink.liquor} onChange={handleChange} required>
                 <option value='gin'>Gin</option>
                 <option value='vodka'>Vodka</option>
                 <option value='tequila'>Tequila</option>
                 <option value='rum'>Rum</option>
                 <option value='whiskey'>Whiskey</option>
             </select>
-            <label>Ingredients</label>
-            <input type="text" name="ingredients" value={this.state.ingredients} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
+            <label>Details</label>
+            <input type="text" name="details" value={drink.details} onChange={handleChange} required />
+            <button type="submit" >Add Drink</button>
           </form>
         </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
     );
   }
-}
