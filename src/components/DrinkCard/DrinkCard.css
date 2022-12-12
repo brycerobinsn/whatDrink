@@ -1,0 +1,17 @@
+.drinkContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.drink {
+    display: flex;
+    align-items: flex-end;
+    padding:10px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 0 black;
+    border-radius: 15px;
+}
