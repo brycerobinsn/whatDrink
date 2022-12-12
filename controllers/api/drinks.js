@@ -3,7 +3,8 @@ const Drink = require('../../models/drink')
 
 module.exports = {
     create,
-    delete: deleteDrink
+    delete: deleteDrink,
+    index
 }
 
 async function create(req, res) {
@@ -16,4 +17,9 @@ async function create(req, res) {
 }
 async function deleteDrink (req, res) {
     const drink = await Drink.findOneAndDelete({_id: req.params.id})
+    res.json(drink)
+}
+async function index(req, res) {
+    const drinkIdx = await Drink.find(req.params.id)
+    res.json(drinkIdx)
 }

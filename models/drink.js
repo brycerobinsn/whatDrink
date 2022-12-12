@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const drinkSchema = new Schema({
-    title: {
+    name: {
         type: String
     },
     liquor: {
@@ -13,6 +13,9 @@ const drinkSchema = new Schema({
     },
     ingredients: {
         type: String
+    },
+    image: {
+        type: File
     }
 })
 

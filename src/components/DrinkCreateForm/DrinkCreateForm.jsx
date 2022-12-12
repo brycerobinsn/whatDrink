@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as drinkAPI from '../../utilities/drinks-api';
 
 
-export default function AddDrink({newDrink}) {
+export default function AddDrink() {
   const [drink, setDrink] = useState ({
     name: '',
     image: '',
@@ -12,22 +12,19 @@ export default function AddDrink({newDrink}) {
 
   const handleSubmit =  async (evt) => {
     evt.preventDefault();
-    console.log('Submitted')
+    console.log(`${drink} Submitted`)
     await drinkAPI.addDrink(drink)
     setDrink({
         name:'',
         image:'',
         liquor: '',
         details: ''
-    })
-  }
+    });
+  };
 
   const handleChange = (evt) => {
     setDrink ({ ...drink,
         [evt.target.name]: evt.target.value,
-        [evt.target.image]: evt.target.value,
-        [evt.target.liquor]: evt.target.value,
-        [evt.target.details]: evt.target.value,
     })
   }
 

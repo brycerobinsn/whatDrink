@@ -7,5 +7,9 @@ export function addDrink(formData) {
 }
 
 export function deleteDrink(drinkId) {
-    return sendRequest(`${BASE_URL}/${drinkId}`)
+    return sendRequest(`${BASE_URL}/${drinkId}`, 'DELETE')
+}
+
+export function indexDrink(drinkId) {
+    return sendRequest(`${BASE_URL}/${drinkId}`, 'GET')
 }
