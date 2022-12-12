@@ -1,5 +1,6 @@
-const BASE_URL ='/api/users'
+import sendRequest from "./send-request";
 
+<<<<<<< HEAD
 export async function signUp(userData){
     const res = await fetch(BASE_URL, {
         method:'POST',
@@ -24,4 +25,16 @@ export async function login(credentials) {
     } else {
         throw new Error('Invalid Log In')
     }
+=======
+const BASE_URL = '/api/users'
+
+export function signUp(userData){
+    return sendRequest(BASE_URL, 'POST', userData)
+}
+export function login(credentials) {
+    return sendRequest(`${BASE_URL}/login`, 'POST', credentials)
+}
+export function checkToken() {
+    return sendRequest(`${BASE_URL}/check-token`)
+>>>>>>> 0c933ab
 }
