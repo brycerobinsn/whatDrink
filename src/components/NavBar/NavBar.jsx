@@ -17,6 +17,8 @@ export default function NavBar({user, setUser}){
             &nbsp; | &nbsp;
             <Link to='/drinks'>All Drinks</Link>
             &nbsp; | &nbsp;
+            <Link to='/drinks/create'>Create Drink</Link>
+            &nbsp; | &nbsp;
             <Link to='/ingredients'>All Ingredients</Link>
             &nbsp; | &nbsp;
             <Link to=""onClick={handleLogOut}>Log Out</Link>
