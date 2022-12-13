@@ -16,9 +16,9 @@ useEffect( () => {
     }
     getDrinkByID()
 },[])
-async function deleteOne(drinkId) {
+async function handleDelete(drinkId) {
     await deleteDrink(drinkId)
-    navigate('/drinks')
+    navigate('/')
     
 }
 console.log({drink})
@@ -27,7 +27,7 @@ console.log({drink})
             <div>
                 <h3>{drink.name}</h3>
                 <p>{drink.details}</p>
-                <button onClick={() => deleteOne(drink._id)}>Delete</button>
+                <button onClick={() => handleDelete(drink._id)}>Delete</button>
             </div>
         </>
     )

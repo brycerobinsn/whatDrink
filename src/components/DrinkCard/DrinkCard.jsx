@@ -15,9 +15,15 @@ export default function DrinkCard ({drink}) {
             <Link to={`/drinks/${drink._id}`}>
                 <div className="drink" style={drinkStyle}>
                     <div>{drink.name}</div>
+                    &nbsp; | &nbsp;
+                    <div>{drink.liquor}</div>
                 </div>
             </Link>
-            <button onClick={() => deleteOne(drink._id)}>Delete</button>
+                 <br></br>
+                <button onClick={() => deleteOne(drink._id)}>Delete</button>
+            <Link to={`/drinks/${drink._id}/edit`}>
+                <button>Edit</button>
+            </Link>
         </div>
     )
 }

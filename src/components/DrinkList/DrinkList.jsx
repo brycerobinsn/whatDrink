@@ -16,7 +16,6 @@ console.log({drinks})
     return (
         <>
             <div>
-                <h3>Drink Here</h3>
                 {drinks.map((drink) => (
                     <DrinkCard key={drink._id} drink={drink}/>
                 ))}

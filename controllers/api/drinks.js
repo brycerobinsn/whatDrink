@@ -1,5 +1,12 @@
 const Drink = require('../../models/drink')
 
+module.exports = {
+    create,
+    delete: deleteDrink,
+    index,
+    all: allDrinks,
+
+}
 async function create(req, res) {
     console.log('Create Drink Running',req.body)
     try{
@@ -10,8 +17,8 @@ async function create(req, res) {
     }
 }
 async function deleteDrink (req, res) {
-    await Drink.findOneAndDelete({_id: req.params.id})
-    res.redirect('/drinks')
+    const drinkDelete = await Drink.findOneAndDelete({_id: req.params.id})
+    res.json(drinkDelete)
 
 }
 async function index(req, res) {
@@ -21,11 +28,4 @@ async function index(req, res) {
 async function allDrinks(req, res) {
     const drinks = await Drink.find()
     res.json(drinks)
-}
-
-module.exports = {
-    create,
-    delete: deleteDrink,
-    index,
-    all: allDrinks
 }
