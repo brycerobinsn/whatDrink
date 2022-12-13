@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { indexDrink } from "../../utilities/drinks-api"
 import { deleteDrink } from "../../utilities/drinks-api"
 
+
 export default function DrinkDetails(){
 const {id} = useParams()
+const navigate = useNavigate()
 const [drink, setDrink] = useState({})
 useEffect( () => {
     const getDrinkByID = async () => {
@@ -14,8 +16,10 @@ useEffect( () => {
     }
     getDrinkByID()
 },[])
-function deleteOne(drinkId) {
-    deleteDrink(drinkId)
+async function deleteOne(drinkId) {
+    await deleteDrink(drinkId)
+    navigate('/drinks')
+    
 }
 console.log({drink})
     return (

@@ -10,10 +10,9 @@ async function create(req, res) {
     }
 }
 async function deleteDrink (req, res) {
-    await Drink.findOneAndDelete({_id: req.params.id}).then(()=> {
-        res.redirect('/drinks')
+    await Drink.findOneAndDelete({_id: req.params.id})
+    res.redirect('/drinks')
 
-    })
 }
 async function index(req, res) {
     const drinkIdx = await Drink.findById(req.params.id)
