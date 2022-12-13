@@ -10,7 +10,7 @@ export default function DrinkListPage() {
     
     return (
         <>
-        <h1>DrinkListPage</h1>
+        <h1>Drinks List</h1>
         <DrinkList/>
         </>
     )

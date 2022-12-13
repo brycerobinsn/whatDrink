@@ -9,6 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import IngListPage from '../IngListPage/IngListPage';
 import CreateDrinkPage from '../CreateDrinkPage/CreateDrinkPage';
 import DrinkDetails from '../../components/DrinkDetails/DrinkDetails';
+import EditDrinkPage from '../EditDrinkPage/EditDrinkPage';
 
 function App() {
   const [user, setUser] = useState(getUser())
@@ -33,6 +34,7 @@ function App() {
             <Route path='/drinks/create' element={<CreateDrinkPage addDrink={addDrink}/>}/>
             <Route path='/ingredients' element={<IngListPage/>}/>
             <Route path='/drinks/:id' element={<DrinkDetails/>}/>
+            <Route path='/drinks/:id/edit' element={<EditDrinkPage/>}/>
           </Routes>
         </>
           :

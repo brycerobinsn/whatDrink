@@ -5,6 +5,8 @@ module.exports = {
     delete: deleteDrink,
     index,
     all: allDrinks,
+    edit: editDrink,
+    update: updateDrink
 
 }
 async function create(req, res) {
@@ -28,4 +30,13 @@ async function index(req, res) {
 async function allDrinks(req, res) {
     const drinks = await Drink.find()
     res.json(drinks)
+}
+async function editDrink(req, res) {
+    const drinkIdx = await Drink.findById(req.params.id)
+    res.json(drinkIdx)
+}
+async function updateDrink(req, res) {
+
+    const drinkUpdate = await Drink.findByIdAndUpdate({_id: req.params.id}, ...req.body)
+    res.json(drinkUpdate)
 }

@@ -16,7 +16,7 @@
 ![DrinkDetails](/public/images/drinkDetailsWireFrame.png)
 
 ## ERD
-
+![ERD](/public/images/erdWhatDrink.png)
 ## Technologies Used
 - React.js
 - JavaScript
