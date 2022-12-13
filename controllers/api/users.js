@@ -9,6 +9,7 @@ module.exports = {
 };
 
 async function login(req, res) {
+  console.log(req.body)
   try {
     const user = await User.findOne({email: req.body.email});
     if (!user) throw new Error();

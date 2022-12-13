@@ -8,6 +8,7 @@ import FavoritePage from '../FavoritePage/FavoritePage';
 import NavBar from '../../components/NavBar/NavBar';
 import IngListPage from '../IngListPage/IngListPage';
 import CreateDrinkPage from '../CreateDrinkPage/CreateDrinkPage';
+import DrinkDetails from '../../components/DrinkDetails/DrinkDetails';
 
 function App() {
   const [user, setUser] = useState(getUser())
@@ -31,6 +32,7 @@ function App() {
             <Route path='/drinks/favorite' element={<FavoritePage/>}/>
             <Route path='/drinks/create' element={<CreateDrinkPage addDrink={addDrink}/>}/>
             <Route path='/ingredients' element={<IngListPage/>}/>
+            <Route path='/drinks/:id' element={<DrinkDetails/>}/>
           </Routes>
         </>
           :

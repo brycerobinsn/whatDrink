@@ -10,12 +10,6 @@ const drinkSchema = new Schema({
     },
     details: {
         type: String
-    },
-    ingredients: {
-        type: String
-    },
-    image: {
-        type: File
     }
 })
 

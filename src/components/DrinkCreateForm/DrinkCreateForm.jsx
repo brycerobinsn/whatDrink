@@ -3,27 +3,25 @@ import * as drinkAPI from '../../utilities/drinks-api';
 
 
 export default function AddDrink() {
-  const [drink, setDrink] = useState ({
+  const [drink, setDrink] = useState({
     name: '',
-    image: '',
-    liquor:'',
+    liquor:'gin',
     details:'',
   });
 
   const handleSubmit =  async (evt) => {
     evt.preventDefault();
-    console.log(`${drink} Submitted`)
+    console.log({drink})
     await drinkAPI.addDrink(drink)
     setDrink({
         name:'',
-        image:'',
         liquor: '',
         details: ''
     });
   };
 
   const handleChange = (evt) => {
-    setDrink ({ ...drink,
+    setDrink({ ...drink,
         [evt.target.name]: evt.target.value,
     })
   }
@@ -35,10 +33,8 @@ export default function AddDrink() {
           <form autoComplete="off" onSubmit={handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={drink.name} onChange={handleChange} required />
-            <label>Image</label>
-            <input type="file" name="image" value={drink.image} onChange={handleChange}/>
             <label>Liquor</label>
-            <select name='liquor' value={drink.liquor} onChange={handleChange} required>
+            <select name='liquor' value={drink.liquor}  onChange={handleChange} required>
                 <option value='gin'>Gin</option>
                 <option value='vodka'>Vodka</option>
                 <option value='tequila'>Tequila</option>

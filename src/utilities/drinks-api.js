@@ -1,15 +1,74 @@
-import sendRequest from "./send-request"
 
-const BASE_URL = '/api/drinks'
+const BASE_URL = 'http://localhost:3001/api/drinks'
 
-export function addDrink(formData) {
-    return sendRequest(BASE_URL, 'POST', formData)
+export async function addDrink(formData) {
+
+    await fetch(BASE_URL, 
+      { 
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : '*'
+
+},
+        body: JSON.stringify(formData)
+      })
+      .then(res => {
+        console.log(res)
+        return res;
+      });
+  }
+  
+export async function deleteDrink(drinkId) {
+    return await fetch(`${BASE_URL}/${drinkId}`, 
+        { 
+          method: 'DELETE',
+          mode: 'cors',
+          headers: {
+              'Access-Control-Allow-Origin' : '*'
+  },
+        })
+        .then(res => {
+          console.log(res)
+          return res.json();
+        }).then(data => {
+            return data;
+        });
 }
 
-export function deleteDrink(drinkId) {
-    return sendRequest(`${BASE_URL}/${drinkId}`, 'DELETE')
+export async function indexDrink(drinkId) {
+    return await fetch(`${BASE_URL}/${drinkId}`, 
+        { 
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+              'Access-Control-Allow-Origin' : '*'
+  },
+        })
+        .then(res => {
+          console.log(res)
+          return res.json();
+        }).then(data => {
+            return data;
+        });
 }
 
-export function indexDrink(drinkId) {
-    return sendRequest(`${BASE_URL}/${drinkId}`, 'GET')
+export async function allDrinks(){
+    return await fetch(BASE_URL, 
+        { 
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+              'Accept': 'application/json',
+              'Access-Control-Allow-Origin' : '*'
+  },
+        })
+        .then(res => {
+          console.log(res)
+          return res.json();
+        }).then(data => {
+            return data;
+        });
 }

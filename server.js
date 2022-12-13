@@ -2,12 +2,18 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const cors = require('cors');
+
+const corsOptions = {
+  origin: '*'
+}
 
 require('dotenv').config();
 // Connect to db after the dotenv above
 require('./config/database');
 
 const app = express();
+// app.options('*', cors(corsOptions))
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -17,7 +23,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/checkToken'))
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
-// app.use('/api/drinks', require('./routes/api/drinks'));
+app.use('/api/drinks', cors(corsOptions), require('./routes/api/drinks'));
+
 
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above
