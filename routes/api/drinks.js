@@ -13,6 +13,8 @@ router.post('/', (req, res) => {
 router.delete('/:id', drinksCtrl.delete)
 router.get('/:id', drinksCtrl.index) 
 router.get('/', drinksCtrl.all) 
+router.get('/:id/edit', drinksCtrl.edit)
+router.put('/:id', drinksCtrl.update)
 
 
 module.exports= router;

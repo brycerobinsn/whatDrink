@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import DrinkCard from "../DrinkCard/DrinkCard"
 import { allDrinks } from "../../utilities/drinks-api"
+import './DrinkList.css'
 
 export default function DrinkList(){
 const [drinks, setDrinks] = useState([])

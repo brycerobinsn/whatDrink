@@ -1,0 +1,9 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    
+    text-align: center;
+    color: #6E0D25;
+    text-shadow: 1px 1px 0 #FFFFB3;
+    border-radius: 15px;
+}
