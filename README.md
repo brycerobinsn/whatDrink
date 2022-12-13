@@ -13,6 +13,7 @@
 ![SignUp](/public/images/signUp.png)
 ![CreateDrink](/public/images/createDrink.png)
 ![DrinkList](/public/images/drinkList.png)
+![DrinkDetails](/what-drink/public/images/drinkDetails.png)
 ## WireFrame
 ![Login](/public/images/loginWireFrame.png)
 ![HomePage](/public/images/homePageWireFrame.png)
